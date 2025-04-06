@@ -1,18 +1,5 @@
-# @tomatrow/ag-grid-svelte
-
-ag-grid bindings for svelte 5
-
-## installation
-
-```shell
-pnpm i -D @tomatrow/ag-grid-svelte
-```
-
-## usage
-
-```svelte
 <script lang="ts">
-	import { AgGridSvelte } from "@tomatrow/ag-grid-svelte"
+	import { AgGridSvelte } from "$lib"
 	import { AllCommunityModule } from "ag-grid-community"
 </script>
 
@@ -30,6 +17,3 @@ pnpm i -D @tomatrow/ag-grid-svelte
 		columnDefs: [{ field: "make" }, { field: "model" }, { field: "price" }, { field: "electric" }]
 	}}
 />
-```
-
-## advanced custom cell
