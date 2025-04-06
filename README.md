@@ -8,7 +8,7 @@ ag-grid bindings for svelte 5
 pnpm i -D @tomatrow/ag-grid-svelte
 ```
 
-## usage
+## basic usage
 
 ```svelte
 <script lang="ts">
@@ -33,3 +33,40 @@ pnpm i -D @tomatrow/ag-grid-svelte
 ```
 
 ## advanced custom cell
+
+```svelte
+<script lang="ts">
+	import { AgGridSvelte, AgGridSvelteSnippetRendererComp } from "@tomatrow/ag-grid-svelte"
+	import { type ICellRendererParams, AllCommunityModule } from "ag-grid-community"
+
+	interface Coffeehouse {
+		name: string
+	}
+</script>
+
+<AgGridSvelte
+	style="height: 80vh"
+	params={{ modules: [AllCommunityModule] }}
+	options={{
+		rowData: [
+			{ name: "Vinaka Cafe" },
+			{ name: "The Cup Coffee" },
+			{ name: "Panikin Coffee & Tea" }
+		],
+		columnDefs: [
+			{
+				field: "name",
+				cellRenderer: AgGridSvelteSnippetRendererComp,
+				cellRendererParams: (params: ICellRendererParams<Coffeehouse>) => ({
+					snippet: customTextCell,
+					...params
+				})
+			}
+		]
+	}}
+/>
+
+{#snippet customTextCell({ params: { data } }: { params: ICellRendererParams<Coffeehouse> })}
+	<p>{data?.name}</p>
+{/snippet}
+```
