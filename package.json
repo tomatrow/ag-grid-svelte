@@ -1,6 +1,6 @@
 {
 	"name": "@tomatrow/ag-grid-svelte",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run prepack",
@@ -30,7 +30,8 @@
 		}
 	},
 	"peerDependencies": {
-		"svelte": "^5.0.0"
+		"svelte": "^5.0.0",
+		"ag-grid-community": "^32 || ^33"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.5",
@@ -54,15 +55,13 @@
 		"vite": "^6.0.0"
 	},
 	"keywords": [
-		"svelte"
+		"svelte",
+		"ag-grid"
 	],
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
 		]
 	},
-	"packageManager": "pnpm@9.14.4",
-	"dependencies": {
-		"ag-grid-community": "^33.1.1"
-	}
+	"packageManager": "pnpm@9.14.4"
 }
